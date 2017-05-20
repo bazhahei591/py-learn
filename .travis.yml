@@ -1,0 +1,14 @@
+language: python
+python:
+  - "3.6"  
+
+install:
+  - pip install tox coveralls
+  - bash ryu/tests/integrated/common/install_docker_test_pkg_for_travis.sh
+
+install:
+  - pip install -r phs/requirements.txt
+
+script: 
+  nosetests --with-coverage
+  codecov
